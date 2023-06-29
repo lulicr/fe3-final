@@ -1,33 +1,30 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useReducer } from "react";
 import { Link } from "react-router-dom";
 import doctor from '../images/doctor.jpg';
 
-const initialState = JSON.parse(localStorage.getItem('favs')) || [];
 
 const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_FAV":
-      return [...state, ...action.payload];
+      return [...state, action.payload];
     default:
       return state;
   }
 };
 
 const Card = ({ name, username, id }) => {
-  const [favs, dispatch] = useReducer(reducer, initialState);
-
-  useEffect(() => {
-    localStorage.setItem("favs", JSON.stringify(favs));
-  }, [favs]);
+  const [state, dispatch] = useReducer(reducer, []);
 
   const addFav = () => {
-    const anteriorFavs = JSON.parse(localStorage.getItem("favs")) || [];
-    const nuevosFavs = [...anteriorFavs, { name, username, id }];
-
+    const nuevosFavs = { name, username, id };
     dispatch({
       type: "ADD_FAV",
       payload: nuevosFavs,
     });
+
+    const prevFavs = JSON.parse(localStorage.getItem("favs")) || [];
+    const actualizadoFavs = [...prevFavs, nuevosFavs];
+    localStorage.setItem("favs", JSON.stringify(actualizadoFavs));
   };
 
   return (
@@ -37,7 +34,6 @@ const Card = ({ name, username, id }) => {
       <h5>{username}</h5>
       <h4>{id}</h4>
       <Link to={`/dentista/${id}`}>Más info</Link>
-
       <button onClick={addFav} className="favButton"> 
         ADD FAV
       </button>
