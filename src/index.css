@@ -13,44 +13,60 @@ code {
 }
 .favButton {
   background-color: rgba(0, 81, 168, 0.116);
+  color: #5E92C2;
   padding: 10px;
   border: none;
   width: 100%;
   cursor: pointer;
   border-radius: 4px;
   font-weight: bold;
-
   transition: background-color 0.3s ease;
 }
 
 .favButton:hover {
-  background-color: rgba(136, 136, 136, 0.3);
+  background-color: rgba(77, 77, 77, 0.3);
 }
-
-
+.dark.favButton:hover {
+  background-color: rgba(0, 81, 168, 0.116);
+  color: #5E92C2;
+}
+.favButton:active {
+  background-color: rgb(126, 126, 126);
+  color: white;
+}
+.dark.favButton:active{
+  background-color: rgba(0, 81, 168, 0.116);
+  color: #5E92C2;
+}
 h1{
   text-align: center;
-  margin: 0%;
   padding-bottom: 3%;
+  margin-top: auto;
+  padding-top: 2%;
 }
-h2 {
-  margin: 0%;
-}
+
+
 nav{
   display: flex;
   justify-content: flex-start;
   padding: 1rem;
 }
 
-a{
-  color: #000;
+.navbar > a{
+  color: #fff;
   text-decoration: none;
   margin: 5px;
   cursor: pointer;
 }
-a:hover{
-  color: rgb(136, 136, 136);
+.navbar a:hover{
+  color: rgb(0, 0, 0);
 } 
+a {
+  color: #5E92C2;
+  text-decoration: none;
+  margin: 5px;
+  cursor: pointer;
+}
 
 footer {
   display: flex;
@@ -74,15 +90,7 @@ footer > p{
   padding-top: 0.7rem;
 }
 
-form{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 300px;
-  height: 100px;
-  margin:  auto;
-  padding: 2rem;
-}
+
 
 .card {
   display: flex;
@@ -92,12 +100,15 @@ form{
   width: 200px;
   padding: 0.5rem;
   border: 1px solid rgb(136, 136, 136);
-  border-radius: 4px;
+  border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 10px 7px 33px -10px rgba(0,0,0,0.64);
+  -moz-box-shadow: 10px 7px 33px -10px rgba(0,0,0,0.64);
+  margin: 1%;
 }
 
 .card:hover{
-  border: 0.5px solid rgb(206, 217, 142);
+  border: 0.5px solid rgb(142, 187, 217);
 }
 
 .card-grid{
@@ -130,13 +141,6 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-.dark{
-  background-color: #12121296;
-  color: white;
-}
-.dark > a {
-  color: white;
-}
 
 .card-img {
   width: 190px; 
@@ -154,10 +158,11 @@ tr:nth-child(even) {
 
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 10px;
   margin-bottom: 0;
+  background-color: #5E92C2;
 }
 
 .logo {
@@ -172,19 +177,93 @@ tr:nth-child(even) {
 .link {
   margin: 0 10px;
   text-decoration: none;
-  color: #333;
+  
 }
 
-.theme-button {
-  margin-left: 20px;
-  border: none;
-  cursor: pointer;
-}
+
 .center {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: auto;
-  height: 77vh
+  height: 77vh;
+  padding-bottom: 2%;
 }
 
+/* tema oscuro */
+.dark {
+  background-color: #000000;
+  color: #fff;
+}
+/*NAVBAR DARK*/
+.dark.navbar {
+  background-color:  #262626;
+}
+
+
+.theme-button {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 5px 10px;
+
+}
+
+.theme-button.dark {
+  color: #000000;
+}
+.dark .link {
+  color: #fff;
+}
+.dark .card{
+  background-color: #262626;
+  box-shadow: 10px 7px 33px -10px rgba(255,255,255,0.64);
+  -webkit-box-shadow: 10px 7px 33px -10px rgba(255,255,255,0.64);
+  -moz-box-shadow: 10px 7px 33px -10px rgba(255,255,255,0.64);
+}
+.dark .favButton {
+  background-color: rgba(220, 220, 220, 0.116);
+  
+}
+
+/*FORM */
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 300px;
+  height: 100px;
+  margin:  auto;
+  padding: 2rem;
+}
+
+
+label {
+  margin-bottom: 5px;
+}
+
+input {
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.submit-button {
+  background-color: #5E92C2;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #2c6da4;
+}
+ /*DETAIL */
+.detail-titulo {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.navbar > p {
+  margin-bottom: 0.5rem;
+}
